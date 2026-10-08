@@ -1,577 +1,181 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Registrasi Pendaftaran Lomba INSFestival — ELEVATE</title>
-
-  <!-- Font modern (bebas framework) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registrasi Pendaftaran Lomba INSFestival – ELEVATE</title>
+  <meta name="description" content="Formulir pendaftaran lomba INSFestival bertema ELEVATE.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <!-- Background decorative -->
-  <div class="bg-wrap" aria-hidden="true">
-    <div class="bg-blob blob-1"></div>
-    <div class="bg-blob blob-2"></div>
-    <div class="bg-grid"></div>
+<header class="hero">
+  <div class="wrap">
+    <p class="brand">INSFestival</p>
+    <p class="theme">ELEVATE</p>
+    <h1>Registrasi Pendaftaran Lomba INSFestival</h1>
   </div>
+  <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+</header>
 
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <div class="brand">
-        <div class="brand__badge" aria-hidden="true">INS</div>
-        <div class="brand__text">
-          <div class="brand__title">INSFestival</div>
-          <div class="brand__subtitle">ELEVATE</div>
-        </div>
+<main class="wrap">
+  <section class="card prolog" id="prolog">
+    <h2>Hai, Sobat INSFest! ✨</h2>
+    <p>Saatnya menunjukkan kreativitas, keberanian, dan kemampuan terbaikmu dalam rangkaian Lomba INS Festival!</p>
+    <p>Sebelum mendaftarkan diri, perhatikan terlebih dahulu jadwal pelaksanaan lomba berikut:</p>
+
+    <h3>📅 Pendaftaran</h3>
+    <ul>
+      <li>Ansambel: 17 Oktober - 19 November 2026</li>
+      <li>Ilustrasi Digital dan Scratch: 17 Oktober - 4 Desember 2026</li>
+    </ul>
+    <h3>📢 Technical Meeting</h3>
+    <ul>
+      <li>Ansambel: 23 November 2026</li>
+      <li>Ilustrasi Digital dan Scratch: 9 Desember 2026</li>
+    </ul>
+    <h3>🏆 Pelaksanaan Lomba</h3>
+    <p class="tight">18 - 19 Desember 2026</p>
+    <h3>📍 Tempat</h3>
+    <p class="tight">SMP the Indonesia Natural School</p>
+
+    <p class="closing">Yuk, daftarkan dirimu untuk mengikuti lomba yang telah disiapkan dan jadilah bagian dari keseruannya! ✨<br>Pastikan data yang kamu isi sudah benar. ✨</p>
+  </section>
+
+  <form id="regForm" class="card" novalidate autocomplete="on">
+    <ol class="progress" id="progress" aria-label="Langkah pengisian">
+      <li><span>1</span>Data pengisi</li>
+      <li><span>2</span>Cabang lomba</li>
+      <li><span>3</span>Pembayaran</li>
+    </ol>
+
+    <div class="banner" id="banner" role="alert" hidden></div>
+
+    <!-- Bagian 1 -->
+    <fieldset class="step" data-step="0">
+      <legend tabindex="-1">Bagian 1: Data Pengisi Formulir</legend>
+
+      <div class="field" data-field="email">
+        <label for="email">Email <b>*</b></label>
+        <input type="email" id="email" name="email" inputmode="email" autocomplete="email" placeholder="nama@email.com">
+        <p class="error" id="err-email"></p>
       </div>
 
-      <nav class="nav" aria-label="Navigasi">
-        <a class="nav__link" href="#section-prolog">Tentang</a>
-        <a class="nav__link" href="#section-1">Form</a>
-        <a class="nav__link nav__cta" href="#section-4" id="navToFinish">Selesai</a>
-      </nav>
+      <div class="field" data-field="phone">
+        <label for="phone">Nomor telepon/WhatsApp <b>*</b></label>
+        <input type="text" id="phone" name="phone" inputmode="numeric" autocomplete="tel" maxlength="15" placeholder="081234567890">
+        <p class="error" id="err-phone"></p>
+      </div>
+
+      <div class="field" data-field="nama_pengisi">
+        <label for="nama_pengisi">Nama pengisi formulir <b>*</b></label>
+        <input type="text" id="nama_pengisi" name="nama_pengisi" autocomplete="name">
+        <p class="error" id="err-nama_pengisi"></p>
+      </div>
+
+      <div class="field" data-field="peran">
+        <span class="label" id="lbl-peran">Peran pengisi formulir <b>*</b></span>
+        <div class="opts" role="radiogroup" aria-labelledby="lbl-peran">
+          <label class="opt"><input type="radio" name="peran" value="Guru/Pendamping"><span>Guru/Pendamping</span></label>
+          <label class="opt"><input type="radio" name="peran" value="Siswa"><span>Siswa</span></label>
+          <label class="opt"><input type="radio" name="peran" value="Orang tua"><span>Orang tua</span></label>
+          <label class="opt"><input type="radio" name="peran" value="Lainnya"><span>Lainnya</span></label>
+        </div>
+        <p class="error" id="err-peran"></p>
+      </div>
+
+      <div class="field" data-field="peran_lainnya" id="wrap-lainnya" hidden>
+        <label for="peran_lainnya">Tulis peran kamu <b>*</b></label>
+        <input type="text" id="peran_lainnya" name="peran_lainnya" placeholder="Contoh: Kakak, Wali">
+        <p class="error" id="err-peran_lainnya"></p>
+      </div>
+
+      <div class="field" data-field="sekolah">
+        <label for="sekolah">Asal sekolah <b>*</b></label>
+        <input type="text" id="sekolah" name="sekolah" autocomplete="organization">
+        <p class="error" id="err-sekolah"></p>
+      </div>
+
+      <div class="field" data-field="daerah">
+        <label for="daerah">Asal daerah <b>*</b></label>
+        <input type="text" id="daerah" name="daerah" placeholder="Kota/Kabupaten, Provinsi">
+        <p class="error" id="err-daerah"></p>
+      </div>
+    </fieldset>
+
+    <!-- Bagian 2 -->
+    <fieldset class="step" data-step="1" hidden>
+      <legend tabindex="-1">Bagian 2: Cabang Lomba dan Peserta</legend>
+      <p class="note">Satu formulir untuk satu cabang lomba. Untuk mendaftar di cabang lain, isi formulir baru.</p>
+
+      <div class="field" data-field="cabang">
+        <span class="label" id="lbl-cabang">Cabang lomba <b>*</b></span>
+        <div class="opts" role="radiogroup" aria-labelledby="lbl-cabang">
+          <label class="opt"><input type="radio" name="cabang" value="Coding Scratch"><span>Coding Scratch</span></label>
+          <label class="opt"><input type="radio" name="cabang" value="Ilustrasi Digital"><span>Ilustrasi Digital</span></label>
+          <label class="opt"><input type="radio" name="cabang" value="Medley Lagu Nusantara"><span>Medley Lagu Nusantara</span></label>
+        </div>
+        <p class="error" id="err-cabang"></p>
+      </div>
+
+      <div class="field" data-field="nama_peserta">
+        <label for="nama_peserta">Nama lengkap <b>*</b></label>
+        <input type="text" id="nama_peserta" name="nama_peserta">
+        <p class="error" id="err-nama_peserta"></p>
+      </div>
+
+      <div class="field" data-field="nisn">
+        <label for="nisn">NISN <b>*</b></label>
+        <input type="text" id="nisn" name="nisn" inputmode="numeric" maxlength="10" placeholder="10 digit angka">
+        <p class="error" id="err-nisn"></p>
+      </div>
+    </fieldset>
+
+    <!-- Bagian 3 -->
+    <fieldset class="step" data-step="2" hidden>
+      <legend tabindex="-1">Bagian 3: PEMBAYARAN</legend>
+
+      <div class="pay">
+        <h3>Informasi Pembayaran</h3>
+        <p>📌 Biaya pendaftaran: Rp <span data-pay="nominal"></span></p>
+        <p>💳 Pembayaran melalui: <span data-pay="metode"></span></p>
+        <p>🔢 Nomor: <span data-pay="nomor"></span></p>
+        <p>👤 Atas nama: <span data-pay="nama"></span></p>
+        <p class="tight">Setelah melakukan pembayaran, silakan unggah bukti pembayaran pada kolom yang tersedia. Pendaftaran akan diverifikasi oleh panitia setelah pembayaran dikonfirmasi.</p>
+      </div>
+
+      <div class="field" data-field="bukti">
+        <label for="bukti">Unggah bukti transfer <b>*</b></label>
+        <label class="drop" for="bukti"><span>Pilih file bukti transfer</span><small>JPG, PNG, atau PDF. Maksimal 5 MB.</small></label>
+        <input type="file" id="bukti" name="bukti" accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf" class="sr">
+        <div class="chip" id="chip" hidden><span id="chipName"></span><button type="button" id="chipX" aria-label="Hapus file">×</button></div>
+        <p class="error" id="err-bukti"></p>
+      </div>
+
+      <!-- honeypot anti-bot -->
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    </fieldset>
+
+    <div class="nav">
+      <button type="button" class="btn ghost" id="btnBack" hidden>Kembali</button>
+      <button type="button" class="btn" id="btnNext">Selanjutnya</button>
+      <button type="submit" class="btn" id="btnSubmit" hidden><span class="spin" hidden></span><span class="txt">Kirim pendaftaran</span></button>
     </div>
-  </header>
+  </form>
 
-  <main class="container page">
-    <!-- HERO / HEADER -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__left">
-        <h1 id="hero-title" class="hero__title">Registrasi Pendaftaran Lomba INSFestival</h1>
-        <p class="hero__tag">
-          Tema kegiatan: <span class="pill pill--accent">ELEVATE</span>
-          <span class="dot" aria-hidden="true"></span>
-          Enerjik, kreatif, dan siap bersinar! ✨
-        </p>
+  <section class="card success" id="success" hidden aria-live="polite">
+    <div class="tick" aria-hidden="true">✓</div>
+    <h2 tabindex="-1">Terima kasih!</h2>
+    <p>Terima kasih, pendaftaran kamu sudah kami terima dan akan diverifikasi oleh panitia.</p>
+    <p class="code">Kode pendaftaran: <b id="regId"></b></p>
+    <p class="tight">Simpan kode ini. Untuk mendaftar di cabang lain, isi formulir baru.</p>
+    <button type="button" class="btn" onclick="location.reload()">Isi formulir baru</button>
+  </section>
+</main>
 
-        <div class="hero__badges" role="list" aria-label="Keunggulan">
-          <div class="mini-badge" role="listitem">⚡ Responsif</div>
-          <div class="mini-badge" role="listitem">🧾 Validasi Real-time</div>
-          <div class="mini-badge" role="listitem">✅ Ringkasan sebelum kirim</div>
-        </div>
-      </div>
-
-      <div class="hero__right">
-        <div class="ins-card hero-card">
-          <div class="hero-card__top">
-            <div class="spark" aria-hidden="true">✦</div>
-            <div>
-              <div class="hero-card__label">Penting</div>
-              <div class="hero-card__text">Satu formulir untuk satu cabang lomba.</div>
-            </div>
-          </div>
-          <div class="hero-card__divider"></div>
-          <ul class="hero-card__list">
-            <li>📱 Cocok untuk HP & laptop</li>
-            <li>🔒 Data tidak otomatis tersimpan ke database (karena GitHub Pages statis)</li>
-            <li>🧠 Siap dihubungkan ke backend / Google Apps Script</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROLOG -->
-    <section id="section-prolog" class="section" aria-labelledby="prolog-title">
-      <div class="section__header">
-        <h2 id="prolog-title" class="section__title">Prolog Kegiatan</h2>
-      </div>
-
-      <div class="grid grid--2">
-        <div class="card card--prose prolog-card">
-          <p class="prolog-text">
-            Hai, Sobat INSFest! ✨
-            <br><br>
-            Saatnya menunjukkan kreativitas, keberanian, dan kemampuan terbaikmu dalam rangkaian
-            <b>Lomba INS Festival!</b>
-            <br><br>
-            Sebelum mendaftarkan diri, perhatikan terlebih dahulu jadwal pelaksanaan lomba berikut:
-          </p>
-
-          <div class="prolog-schedule">
-            <!-- Jadwal akan ditampilkan sebagai card agar mudah dibaca -->
-            <div class="info-card">
-              <div class="info-card__icon" aria-hidden="true">📅</div>
-              <div class="info-card__body">
-                <div class="info-card__label">Pendaftaran</div>
-                <div class="info-card__value" id="schedule-register">__________________________</div>
-              </div>
-            </div>
-
-            <div class="info-card">
-              <div class="info-card__icon" aria-hidden="true">📢</div>
-              <div class="info-card__body">
-                <div class="info-card__label">Pengumuman Peserta</div>
-                <div class="info-card__value" id="schedule-announcement">__________________________</div>
-              </div>
-            </div>
-
-            <div class="info-card">
-              <div class="info-card__icon" aria-hidden="true">🏆</div>
-              <div class="info-card__body">
-                <div class="info-card__label">Pelaksanaan Lomba</div>
-                <div class="info-card__value" id="schedule-event">__________________________</div>
-              </div>
-            </div>
-
-            <div class="info-card info-card--small">
-              <div class="info-card__icon" aria-hidden="true">⏰</div>
-              <div class="info-card__body">
-                <div class="info-card__label">Waktu</div>
-                <div class="info-card__value" id="schedule-time">__________________________</div>
-              </div>
-            </div>
-
-            <div class="info-card info-card--small">
-              <div class="info-card__icon" aria-hidden="true">📍</div>
-              <div class="info-card__body">
-                <div class="info-card__label">Tempat</div>
-                <div class="info-card__value" id="schedule-place">SMP the Indonesia Natural School</div>
-              </div>
-            </div>
-          </div>
-
-          <p class="prolog-text">
-            Yuk, daftarkan dirimu untuk mengikuti lomba yang telah disiapkan dan jadilah bagian dari keseruannya! ✨
-            <br><br>
-            Pastikan data yang kamu isi sudah benar. ✨
-          </p>
-        </div>
-
-        <aside class="card payment-card" aria-label="Panduan singkat">
-          <div class="section__header section__header--tight">
-            <h3 class="section__title section__title--small">Panduan Cepat</h3>
-          </div>
-
-          <ol class="steps">
-            <li><span class="step-num">1</span> Isi data pengisi form</li>
-            <li><span class="step-num">2</span> Isi data peserta & pilih cabang</li>
-            <li><span class="step-num">3</span> Isi pembayaran & unggah bukti</li>
-            <li><span class="step-num">4</span> Konfirmasi & kirim pendaftaran</li>
-          </ol>
-
-          <div class="callout">
-            <div class="callout__icon" aria-hidden="true">✅</div>
-            <div>
-              <div class="callout__title">Tip</div>
-              <div class="callout__text">Siapkan NISN & bukti transfer (JPG/PNG/PDF) sebelum mulai.</div>
-            </div>
-          </div>
-
-          <div class="progress-wrap" aria-label="Progress pendaftaran">
-            <div class="progress-bar">
-              <div class="progress-bar__item is-active" data-step="1">
-                <div class="progress-bar__dot">1</div>
-                <div class="progress-bar__label">Data Pengisi</div>
-              </div>
-              <div class="progress-bar__item" data-step="2">
-                <div class="progress-bar__dot">2</div>
-                <div class="progress-bar__label">Peserta</div>
-              </div>
-              <div class="progress-bar__item" data-step="3">
-                <div class="progress-bar__dot">3</div>
-                <div class="progress-bar__label">Pembayaran</div>
-              </div>
-              <div class="progress-bar__item" data-step="4">
-                <div class="progress-bar__dot">4</div>
-                <div class="progress-bar__label">Selesai</div>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- FORM WIZARD -->
-    <section class="section" aria-label="Form registrasi" id="section-form">
-      <form id="registrationForm" novalidate>
-        <!-- STEP 1 -->
-        <div class="step step--active" data-step="1" id="section-1">
-          <div class="section__header">
-            <h2 class="section__title">DATA PENGISI FORMULIR</h2>
-            <p class="section__subtitle">Bagian ini wajib diisi dengan data yang valid.</p>
-          </div>
-
-          <div class="card card--form">
-            <div class="grid grid--2">
-              <div class="field">
-                <label for="email" class="label">
-                  Email <span class="req" aria-hidden="true">*</span>
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  inputmode="email"
-                  autocomplete="email"
-                  placeholder="contoh: nama@email.com"
-                  required
-                />
-                <div class="field__error" data-error-for="email" aria-live="polite"></div>
-              </div>
-
-              <div class="field">
-                <label for="whatsapp" class="label">
-                  Nomor Telepon/WhatsApp <span class="req" aria-hidden="true">*</span>
-                </label>
-                <input
-                  id="whatsapp"
-                  name="whatsapp"
-                  type="tel"
-                  inputmode="tel"
-                  autocomplete="tel"
-                  placeholder="contoh: 08xxxxxxxxxx"
-                  required
-                />
-                <div class="field__error" data-error-for="whatsapp" aria-live="polite"></div>
-              </div>
-            </div>
-
-            <div class="grid grid--2">
-              <div class="field">
-                <label for="pengisiNama" class="label">
-                  Nama Pengisi Formulir <span class="req" aria-hidden="true">*</span>
-                </label>
-                <input
-                  id="pengisiNama"
-                  name="pengisiNama"
-                  type="text"
-                  autocomplete="name"
-                  placeholder="Nama lengkap pengisi"
-                  required
-                />
-                <div class="field__error" data-error-for="pengisiNama" aria-live="polite"></div>
-              </div>
-
-              <div class="field">
-                <label class="label">
-                  Peran Pengisi Formulir <span class="req" aria-hidden="true">*</span>
-                </label>
-
-                <div class="radio-group">
-                  <label class="radio">
-                    <input type="radio" name="peran" value="Guru/Pendamping" required />
-                    <span>Guru/Pendamping</span>
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="peran" value="Siswa" />
-                    <span>Siswa</span>
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="peran" value="Orang Tua" />
-                    <span>Orang Tua</span>
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="peran" value="Lainnya" />
-                    <span>Lainnya</span>
-                  </label>
-                </div>
-
-                <div class="field__error" data-error-for="peran" aria-live="polite"></div>
-
-                <div class="conditional" id="peranLainnyaWrap" hidden>
-                  <label for="peranLainnya" class="label label--cond">
-                    Tuliskan peran Anda <span class="req" aria-hidden="true">*</span>
-                  </label>
-                  <input
-                    id="peranLainnya"
-                    name="peranLainnya"
-                    type="text"
-                    placeholder="Contoh: Koordinator OSIS"
-                    autocomplete="off"
-                  />
-                  <div class="field__error" data-error-for="peranLainnya" aria-live="polite"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="grid grid--2">
-              <div class="field">
-                <label for="asalSekolah" class="label">
-                  Asal Sekolah <span class="req" aria-hidden="true">*</span>
-                </label>
-                <input
-                  id="asalSekolah"
-                  name="asalSekolah"
-                  type="text"
-                  placeholder="contoh: SMP ABC"
-                  autocomplete="organization"
-                  required
-                />
-                <div class="field__error" data-error-for="asalSekolah" aria-live="polite"></div>
-              </div>
-
-              <div class="field">
-                <label for="asalDaerah" class="label">
-                  Asal Daerah <span class="req" aria-hidden="true">*</span>
-                </label>
-                <input
-                  id="asalDaerah"
-                  name="asalDaerah"
-                  type="text"
-                  placeholder="contoh: Jakarta Selatan"
-                  required
-                />
-                <div class="field__error" data-error-for="asalDaerah" aria-live="polite"></div>
-              </div>
-            </div>
-
-            <div class="actions actions--single">
-              <button type="button" class="btn btn--primary" id="btnToStep2">
-                LANJUT KE DATA PESERTA →
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 2 -->
-        <div class="step" data-step="2" id="section-2" aria-hidden="true">
-          <div class="section__header">
-            <h2 class="section__title">CABANG LOMBA DAN PESERTA</h2>
-            <p class="section__subtitle">Satu formulir digunakan untuk satu cabang lomba.</p>
-          </div>
-
-          <div class="card card--form">
-            <div class="prose">
-              <p class="muted">
-                Untuk mendaftarkan peserta pada cabang lomba lainnya, silakan mengisi formulir baru.
-              </p>
-            </div>
-
-            <div class="grid grid--2">
-              <div class="field">
-                <label class="label">
-                  Cabang Lomba <span class="req" aria-hidden="true">*</span>
-                </label>
-
-                <select id="cabang" name="cabang" required>
-                  <option value="" selected disabled>— Pilih cabang lomba —</option>
-                  <option value="Coding Scratch">Coding Scratch</option>
-                  <option value="Ilustrasi Digital">Ilustrasi Digital</option>
-                  <option value="Medley Lagu Nusantara">Medley Lagu Nusantara</option>
-                </select>
-
-                <div class="field__error" data-error-for="cabang" aria-live="polite"></div>
-              </div>
-
-              <div class="field">
-                <label for="namaPeserta" class="label">
-                  Nama Lengkap Peserta <span class="req" aria-hidden="true">*</span>
-                </label>
-                <input
-                  id="namaPeserta"
-                  name="namaPeserta"
-                  type="text"
-                  placeholder="Nama lengkap peserta"
-                  required
-                />
-                <div class="field__error" data-error-for="namaPeserta" aria-live="polite"></div>
-              </div>
-            </div>
-
-            <div class="grid grid--2">
-              <div class="field">
-                <label for="nisn" class="label">
-                  NISN <span class="req" aria-hidden="true">*</span>
-                </label>
-                <input
-                  id="nisn"
-                  name="nisn"
-                  type="text"
-                  inputmode="numeric"
-                  placeholder="Contoh: 1234567890"
-                  maxlength="10"
-                  required
-                />
-                <div class="field__hint">⚙️ NISN hanya angka (umumnya 10 digit).</div>
-                <div class="field__error" data-error-for="nisn" aria-live="polite"></div>
-              </div>
-
-              <div class="field">
-                <label class="label">Ringkasan Singkat (Auto)</label>
-                <div class="summary-box" aria-live="polite">
-                  <div><span class="summary-k">Cabang:</span> <span class="summary-v" id="sumCabang">—</span></div>
-                  <div><span class="summary-k">Peserta:</span> <span class="summary-v" id="sumNama">—</span></div>
-                  <div><span class="summary-k">NISN:</span> <span class="summary-v" id="sumNisn">—</span></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="actions actions--space">
-              <button type="button" class="btn btn--ghost" id="btnBackToStep1">← KEMBALI</button>
-              <button type="button" class="btn btn--primary" id="btnToStep3">
-                LANJUT KE PEMBAYARAN →
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 3 -->
-        <div class="step" data-step="3" id="section-3" aria-hidden="true">
-          <div class="section__header">
-            <h2 class="section__title">PEMBAYARAN</h2>
-            <p class="section__subtitle">Isi data pembayaran dan unggah bukti transfer.</p>
-          </div>
-
-          <div class="card card--form">
-            <div class="payment-info">
-              <div class="payment-info__title">Informasi Pembayaran</div>
-
-              <div class="payment-grid" aria-label="Rincian pembayaran">
-                <div class="payment-item">
-                  <div class="payment-item__icon" aria-hidden="true">📌</div>
-                  <div class="payment-item__label">Biaya pendaftaran</div>
-                  <div class="payment-item__value" id="payBiaya">Rp __________________________</div>
-                </div>
-                <div class="payment-item">
-                  <div class="payment-item__icon" aria-hidden="true">💳</div>
-                  <div class="payment-item__label">Pembayaran melalui</div>
-                  <div class="payment-item__value" id="payVia">__________________________</div>
-                </div>
-                <div class="payment-item">
-                  <div class="payment-item__icon" aria-hidden="true">🔢</div>
-                  <div class="payment-item__label">Nomor</div>
-                  <div class="payment-item__value" id="payNomor">__________________________</div>
-                </div>
-                <div class="payment-item payment-item--wide">
-                  <div class="payment-item__icon" aria-hidden="true">👤</div>
-                  <div class="payment-item__label">Atas nama</div>
-                  <div class="payment-item__value" id="payAtasNama">__________________________</div>
-                </div>
-              </div>
-
-              <div class="callout callout--soft">
-                <div class="callout__icon" aria-hidden="true">🧾</div>
-                <div>
-                  <div class="callout__title">Catatan Verifikasi</div>
-                  <div class="callout__text">
-                    Setelah melakukan pembayaran, unggah bukti pembayaran pada kolom yang tersedia.
-                    Pendaftaran akan diverifikasi oleh panitia setelah pembayaran dikonfirmasi.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="grid grid--2">
-              <div class="field">
-                <label for="bukti" class="label">
-                  Unggah Bukti Transfer <span class="req" aria-hidden="true">*</span>
-                </label>
-
-                <input
-                  id="bukti"
-                  name="bukti"
-                  type="file"
-                  accept=".jpg,.jpeg,.png,.pdf,application/pdf,image/jpeg,image/png"
-                  required
-                />
-
-                <div class="file-preview" id="filePreview" aria-live="polite">
-                  <div class="file-preview__placeholder">Belum ada file dipilih.</div>
-                  <div class="file-preview__name" id="fileName"></div>
-                </div>
-
-                <div class="field__error" data-error-for="bukti" aria-live="polite"></div>
-
-                <div class="file-allowed">
-                  ✅ Hanya menerima: <b>JPG</b>, <b>JPEG</b>, <b>PNG</b>, <b>PDF</b>
-                </div>
-              </div>
-
-              <div class="field">
-                <label class="label">Ringkasan Data Pendaftaran</label>
-                <div class="summary-box summary-box--tall" id="sumFinal">
-                  <!-- Diisi via JS -->
-                </div>
-              </div>
-            </div>
-
-            <div class="actions actions--space">
-              <button type="button" class="btn btn--ghost" id="btnBackToStep2">← KEMBALI</button>
-              <button type="button" class="btn btn--primary" id="btnSubmit">
-                KIRIM PENDAFTARAN 🚀
-              </button>
-            </div>
-
-            <div class="micro-note">
-              Dengan menekan <b>KIRIM PENDAFTARAN</b>, kamu setuju bahwa data yang diisi digunakan untuk proses verifikasi panitia.
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 4: KONFIRMASI -->
-        <div class="step step--success" data-step="4" id="section-4" aria-hidden="true">
-          <div class="section__header">
-            <h2 class="section__title">🎉 PENDAFTARAN BERHASIL!</h2>
-            <p class="section__subtitle">Terima kasih! Kami akan verifikasi data pendaftaranmu.</p>
-          </div>
-
-          <div class="card card--success">
-            <div class="success-icon" aria-hidden="true">✨</div>
-            <p class="success-text">
-              Terima kasih telah mendaftarkan diri dalam <b>INSFestival — ELEVATE!</b>
-              <br><br>
-              Data pendaftaranmu telah berhasil dikirim dan akan diverifikasi oleh panitia.
-              <br><br>
-              Pastikan nomor WhatsApp dan email yang kamu cantumkan tetap aktif untuk menerima informasi selanjutnya.
-            </p>
-
-            <div class="divider"></div>
-
-            <div class="success-summary">
-              <div class="success-summary__row">
-                <span class="success-k">Nama Peserta</span>
-                <span class="success-v" id="finalNamaPeserta">—</span>
-              </div>
-              <div class="success-summary__row">
-                <span class="success-k">Cabang Lomba</span>
-                <span class="success-v" id="finalCabang">—</span>
-              </div>
-              <div class="success-summary__row">
-                <span class="success-k">Nomor Registrasi</span>
-                <span class="success-v" id="finalNoRegistrasi">INSF-2026-XXXX</span>
-              </div>
-            </div>
-
-            <div class="actions actions--single">
-              <button type="button" class="btn btn--primary" id="btnBackHome">
-                KEMBALI KE HALAMAN UTAMA
-              </button>
-            </div>
-          </div>
-
-          <div class="small-footer">
-            <span aria-hidden="true">📌</span> Nomor registrasi hanya sebagai referensi di halaman ini.
-            Untuk sistem panitia, hubungkan submit ke backend/Google Apps Script agar nomor tersimpan secara permanen.
-          </div>
-        </div>
-
-        <!-- Hidden endpoint placeholder (siap diganti) -->
-        <input type="hidden" id="registrationPayload" name="registrationPayload" />
-      </form>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__left">
-        <div class="footer__brand">INSFestival • ELEVATE</div>
-        <div class="footer__muted">Formulir registrasi lomba (statis via GitHub Pages) • Tanpa backend</div>
-      </div>
-      <div class="footer__right">
-        <a class="footer__link" href="#section-1">Mulai Registrasi</a>
-        <a class="footer__link" href="#section-prolog">Lihat Jadwal</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+<footer class="foot">INSFestival · ELEVATE</footer>
+<script src="script.js"></script>
 </body>
 </html>
